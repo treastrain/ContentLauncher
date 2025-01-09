@@ -2,7 +2,7 @@
 
 Launch content from anywhere.
 
-
+![](https://github.com/noppefoxwolf/ContentLauncher/blob/main/.github/demo.gif)
 
 # Installation
 

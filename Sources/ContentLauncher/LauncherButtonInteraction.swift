@@ -96,9 +96,15 @@ final class LauncherButtonInteraction: NSObject, UIInteraction {
             break
         }
         
-        UIView.animate(animations: {
-            view.layoutIfNeeded()
-        })
+        if #available(iOS 17.0, *) {
+            UIView.animate(animations: {
+                view.layoutIfNeeded()
+            })
+        } else {
+            UIView.animate(withDuration: 0.5, animations: {
+                view.layoutIfNeeded()
+            })
+        }
     }
 }
 

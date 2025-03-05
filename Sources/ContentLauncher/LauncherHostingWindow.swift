@@ -32,6 +32,3 @@ public final class LauncherHostingWindow<Content: View>: UIWindow {
         }
     }
 }
-
-@available(*, deprecated, renamed: "LauncherHostingWindow", message: "Use LauncherHostingWindow instead.")
-public typealias LancherHostingWindow = LauncherHostingWindow

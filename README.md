@@ -17,9 +17,9 @@ dependencies: [
 # Usage
 
 ```swift
-lancherWindow = LancherHostingWindow(
+launcherWindow = LauncherHostingWindow(
     windowScene: windowScene,
-    content: LancherContentView()
+    content: LauncherContentView()
 )
 ```
 

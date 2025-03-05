@@ -1,13 +1,13 @@
 import SwiftUI
 import UIKit
 
-public final class LancherHostingWindow<Content: View>: UIWindow {
+public final class LauncherHostingWindow<Content: View>: UIWindow {
     public init(
         windowScene: UIWindowScene,
         content: Content
     ) {
         super.init(windowScene: windowScene)
-        rootViewController = LancherHostViewController(content: content)
+        rootViewController = LauncherHostViewController(content: content)
         isHidden = false // visibleWithoutMakeKey
     }
     
@@ -33,3 +33,5 @@ public final class LancherHostingWindow<Content: View>: UIWindow {
     }
 }
 
+@available(*, deprecated, renamed: "LauncherHostingWindow", message: "Use LauncherHostingWindow instead.")
+public typealias LancherHostingWindow = LauncherHostingWindow

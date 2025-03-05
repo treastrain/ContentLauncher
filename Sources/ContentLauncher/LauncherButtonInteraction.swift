@@ -1,6 +1,6 @@
 import UIKit
 
-final class LancherButtonInteraction: NSObject, UIInteraction {
+final class LauncherButtonInteraction: NSObject, UIInteraction {
     weak var view: UIView?
     
     var centerXConstraint: NSLayoutConstraint!

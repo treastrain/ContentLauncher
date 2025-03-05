@@ -1,8 +1,8 @@
 import UIKit
 import SwiftUI
 
-final class LancherHostViewController<Content: View>: UIViewController {
-    let button = UIButton(configuration: .lancher())
+final class LauncherHostViewController<Content: View>: UIViewController {
+    let button = UIButton(configuration: .launcher())
     let content: Content
     
     init(content: Content) {
@@ -24,7 +24,7 @@ final class LancherHostViewController<Content: View>: UIViewController {
             presentContent()
         }, for: .primaryActionTriggered)
         
-        button.addInteraction(LancherButtonInteraction())
+        button.addInteraction(LauncherButtonInteraction())
     }
     
     func presentContent() {

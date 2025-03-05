@@ -2,7 +2,7 @@ import UIKit
 
 extension UIButton.Configuration {
     @MainActor
-    static func lancher() -> UIButton.Configuration {
+    static func launcher() -> UIButton.Configuration {
         var configuration = UIButton.Configuration.plain()
         configuration.baseForegroundColor = .label
         configuration.background.visualEffect = UIBlurEffect(style: .systemMaterial)

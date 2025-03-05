@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LancherContentView: View {
+struct LauncherContentView: View {
     var body: some View {
         NavigationView {
             List {

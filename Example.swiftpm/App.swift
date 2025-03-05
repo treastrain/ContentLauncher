@@ -27,7 +27,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 
 final class SceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
     var window: UIWindow?
-    var lancherWindow: UIWindow? = nil
+    var launcherWindow: UIWindow? = nil
     
     func scene(
         _ scene: UIScene,
@@ -36,9 +36,9 @@ final class SceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
     ) {
         let windowScene = scene as! UIWindowScene
         window = windowScene.keyWindow
-        lancherWindow = LancherHostingWindow(
+        launcherWindow = LauncherHostingWindow(
             windowScene: windowScene,
-            content: LancherContentView()
+            content: LauncherContentView()
         )
     }
 }

@@ -4,10 +4,14 @@ import UIKit
 public final class LauncherHostingWindow<Content: View>: UIWindow {
     public init(
         windowScene: UIWindowScene,
-        content: Content
+        content: Content,
+        launcherButtonConfiguration: UIButton.Configuration = .launcher()
     ) {
         super.init(windowScene: windowScene)
-        rootViewController = LauncherHostViewController(content: content)
+        rootViewController = LauncherHostViewController(
+            content: content,
+            buttonConfiguration: launcherButtonConfiguration
+        )
         isHidden = false // visibleWithoutMakeKey
     }
     

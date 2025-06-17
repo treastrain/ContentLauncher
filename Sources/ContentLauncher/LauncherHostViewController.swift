@@ -2,10 +2,14 @@ import UIKit
 import SwiftUI
 
 final class LauncherHostViewController<Content: View>: UIViewController {
-    let button = UIButton(configuration: .launcher())
+    let button: UIButton
     let content: Content
     
-    init(content: Content) {
+    init(
+        content: Content,
+        buttonConfiguration: UIButton.Configuration = .launcher()
+    ) {
+        self.button = UIButton(configuration: buttonConfiguration)
         self.content = content
         super.init(nibName: nil, bundle: nil)
     }
@@ -17,7 +21,6 @@ final class LauncherHostViewController<Content: View>: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
-        button.configuration?.image = UIImage(systemName: "terminal")
         view.addSubview(button)
         
         button.addAction(UIAction { [unowned self] _ in

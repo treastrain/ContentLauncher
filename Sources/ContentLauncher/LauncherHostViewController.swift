@@ -7,7 +7,7 @@ final class LauncherHostViewController<Content: View>: UIViewController {
     
     init(
         content: Content,
-        buttonConfiguration: UIButton.Configuration = .launcher()
+        buttonConfiguration: UIButton.Configuration
     ) {
         self.button = UIButton(configuration: buttonConfiguration)
         self.content = content

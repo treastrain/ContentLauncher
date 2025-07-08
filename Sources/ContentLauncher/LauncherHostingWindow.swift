@@ -1,16 +1,32 @@
 import SwiftUI
 import UIKit
 
+@MainActor
+public struct LauncherHostingWindowConfiguration {
+    public var launcherButtonConfiguration: UIButton.Configuration = .launcher()
+    
+    #if os(iOS)
+    public var selectedDetentIdentifier: UISheetPresentationController.Detent.Identifier = .medium
+    #endif
+    
+    public init() {}
+}
+
 public final class LauncherHostingWindow<Content: View>: UIWindow {
+    private let keyWindowManager = KeyWindowManager()
+    
     public init(
         windowScene: UIWindowScene,
         content: Content,
-        launcherButtonConfiguration: UIButton.Configuration = .launcher()
+        configuration: LauncherHostingWindowConfiguration = LauncherHostingWindowConfiguration()
     ) {
         super.init(windowScene: windowScene)
         rootViewController = LauncherHostViewController(
             content: content,
-            buttonConfiguration: launcherButtonConfiguration
+            configuration: configuration,
+            onDismiss: { [weak self] in
+                self?.keyWindowManager.restorePreviousKeyWindow()
+            }
         )
         isHidden = false // visibleWithoutMakeKey
     }
@@ -34,5 +50,10 @@ public final class LauncherHostingWindow<Content: View>: UIWindow {
                 return nil
             }
         }
+    }
+    
+    public override func makeKey() {
+        keyWindowManager.storePreviousKeyWindow(excluding: self)
+        super.makeKey()
     }
 }
